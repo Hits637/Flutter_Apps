@@ -27,6 +27,8 @@ class _ShopAppState extends State {
   int num = 1;
   bool val = true;
   bool mainval = true;
+
+  int price = 570;
   numincrement() {
     num++;
   }
@@ -39,37 +41,266 @@ class _ShopAppState extends State {
 
   Scaffold cartScaffold() {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("My Cart",
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.w600,
-                color: Colors.purple,
-              )),
-          centerTitle: true,
-          backgroundColor: Colors.black,
-        ),
-        body: Column(
+      appBar: AppBar(
+        title: Row(
           children: [
-            const SizedBox(
-              height: 20,
-            ),
-            Image.network(
-                "https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-illustration-download-in-svg-png-gif-file-formats--state-no-items-zero-page-added-states-pack-design-development-illustrations-4610092.png?f=webp"),
-            const SizedBox(
-              height: 80,
-            ),
-            ElevatedButton(
+            IconButton(
                 onPressed: () {
                   mainval = true;
                   setState(() {});
                 },
-                style: const ButtonStyle(
-                    backgroundColor: WidgetStatePropertyAll(Colors.blue)),
-                child:
-                    const Text("Home", style: TextStyle(color: Colors.white))),
+                icon: const Icon(Icons.arrow_back_ios)),
+            const SizedBox(
+              width: 100,
+            ),
+            const Text("My Cart",
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.purple,
+                )),
           ],
-        ));
+        ),
+        centerTitle: true,
+      ),
+      body: Column(
+        children: [
+          const SizedBox(
+            height: 20,
+          ),
+          Center(
+            child: Container(
+              padding: const EdgeInsets.all(15),
+              height: 150,
+              width: MediaQuery.of(context).size.width - 30,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: const Color.fromARGB(255, 240, 239, 239),
+              ),
+              child: Row(
+                children: [
+                  SizedBox(
+                    height: 120,
+                    width: 120,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.network(
+                        "https://app.vectary.com/website_assets/636cc9840038712edca597df/636cc9840038713d9aa59ac2_UV_hero.jpg",
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(left: 10, right: 80),
+                        child: Text(
+                          "Nike Shoes",
+                          style: TextStyle(
+                              fontSize: 24, fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 50,
+                        width: 200,
+                        child: Text(
+                            "With iconic style and legendary comfort, on repeat"),
+                      ),
+                      SizedBox(
+                        width: 190,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("\$$price",
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            SizedBox(
+                              width: 100,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  const Icon(Icons.remove),
+                                  Container(
+                                    height: 25,
+                                    width: 30,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(color: Colors.blue),
+                                        borderRadius: BorderRadius.circular(5)),
+                                    child: Text(
+                                      "$num",
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  const Icon(Icons.add)
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Center(
+            child: Container(
+              padding: const EdgeInsets.all(15),
+              height: 150,
+              width: MediaQuery.of(context).size.width - 30,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: const Color.fromARGB(255, 240, 239, 239),
+              ),
+              child: Row(
+                children: [
+                  SizedBox(
+                    height: 120,
+                    width: 120,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.network(
+                        "https://app.vectary.com/website_assets/636cc9840038712edca597df/636cc9840038713d9aa59ac2_UV_hero.jpg",
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(left: 10, right: 80),
+                        child: Text(
+                          "Nike Shoes",
+                          style: TextStyle(
+                              fontSize: 24, fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 50,
+                        width: 200,
+                        child: Text(
+                            "With iconic style and legendary comfort, on repeat"),
+                      ),
+                      SizedBox(
+                        width: 190,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("\$$price",
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                            Container(
+                              width: 100,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  const Icon(Icons.remove),
+                                  Container(
+                                    height: 25,
+                                    width: 30,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(color: Colors.blue),
+                                        borderRadius: BorderRadius.circular(5)),
+                                    child: Text(
+                                      "$num",
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  const Icon(Icons.add)
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+          const Spacer(),
+          Container(
+            height: 200,
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Subtotal:",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                    ),
+                    Text("\$800",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        )),
+                  ],
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Delivery Fee:",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                    ),
+                    Text(
+                      "\$5",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Discount:",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                    ),
+                    Text(
+                      "40%",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                Container(
+                  width: 350,
+                  child: ElevatedButton(
+                      onPressed: () {},
+                      style: const ButtonStyle(
+                          backgroundColor: WidgetStatePropertyAll(Colors.blue)),
+                      child: const Text(
+                        "Check Out",
+                        style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      )),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   Scaffold stateChange() {
